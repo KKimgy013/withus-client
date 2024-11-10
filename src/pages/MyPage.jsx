@@ -54,8 +54,8 @@ export default function MyPage() {
   const closeInfo = () => setIsInfoOpen(false);
 
   return (
-    <div className="pageWrapper">
-      <Header openInfo={openInfo} /> 
+    <div className="pageWrapper my-page">
+      <Header openInfo={openInfo}/> 
       <header className="header">
         <h1>{header}</h1>
       </header>

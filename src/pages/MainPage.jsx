@@ -6,7 +6,7 @@ import "../style.css";
 export default function MainPage() {
   return (
     <>
-      <div>
+      <div className="main-page">
         <Header />
       </div>
       <div>

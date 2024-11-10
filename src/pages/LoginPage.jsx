@@ -5,7 +5,7 @@ import KakaoLogin from "../components/KakaoLogin";
 function LoginPage() {
   return (
     <div>
-      <div>
+      <div className="login-page">
         <Header />
       </div>
       <div>
