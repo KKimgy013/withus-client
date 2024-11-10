@@ -1,0 +1,165 @@
+.userProfile {
+  border-radius: 0;
+  display: flex;
+  max-width: 465px;
+  flex-direction: column;
+  position: relative; 
+  margin-left: 600px;
+}
+
+.profileCard {
+  position: relative; /* 닫기 버튼의 절대 위치를 설정하기 위해 필요 */
+  border-radius: 10px;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #25e069;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profileContent {
+  gap: 20px;
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .profileContent {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+  }
+}
+
+.imageColumn {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 36%;
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .imageColumn {
+      width: 100%;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  text-align: center;
+  justify-content: center;
+  font: 700 32px Inter, sans-serif;
+  margin-top: -35px; /* 추가: 상단 여백 제거 */
+}
+
+.profileImage {
+  background-color: #d9d9d9;
+  align-self: center;
+  display: flex;
+  min-height: 180px;
+  max-width: 100%;
+  width: 139px;
+  margin-top: -20px;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 64%;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .infoColumn {
+      width: 100%;
+  }
+}
+
+.userInfo {
+  display: flex;
+  margin-top: 51px;
+  flex-grow: 1;
+  flex-direction: column;
+  color: #000;
+  justify-content: start;
+  font: 700 20px Inter, sans-serif;
+}
+
+.infoItem {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.smallText {
+  font-size: 14px;
+  font-weight: 400; /* Added for clarity on smaller text style */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.closeButton:hover {
+  background-color: #d32f2f;
+}
+
+.profileCard {
+  position: relative; /* 닫기 버튼의 절대 위치를 설정하기 위해 필요 */
+  border-radius: 10px;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #25e069;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.userInfoContainer {
+  position: absolute;
+  top: 100%; /* header 바로 아래에 위치 */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Place it below the modal */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to start for vertical offset */
+  padding-top: 110px;
+}
