@@ -82,9 +82,20 @@ header{
   
   .right-nav a:hover{
     color:white;
-  
   } 
 
-  #main-hover{
+  .main-page #main-hover{
+    color: white;
+  }
+
+  .exe-page #exe-hover {
+    color: white;
+  }
+
+  .my-page #mypage-hover {
+    color: white;
+  }
+
+  .chat-page #chat-hover {
     color: white;
   }

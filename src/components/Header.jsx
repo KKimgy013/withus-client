@@ -43,16 +43,16 @@ export default function Header() {
             달성 현황
           </a>
           <div className="nav-divider"></div>
-          <a href="#">
+          <a href="#" id="chat-hover">
             <span>마음이랑</span>
             <br />
             <span>대화하기</span>
           </a>
           <div className="nav-divider"></div>
-          <a href="#">목표 실행</a>
+          <a href="#" id="exe-hover">목표 실행</a>
           <div className="nav-divider"></div>
           {/* 마이페이지 클릭 시 서버에 요청 보내기 */}
-          <a href="#" onClick={navigateToMyPage}>마이페이지</a>
+          <a href="#" id="mypage-hover" onClick={navigateToMyPage}>마이페이지</a>
           <div className="nav-divider"></div>
         </div>
 
