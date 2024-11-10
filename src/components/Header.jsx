@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../img/logo.png";
+import "../css/Header.css";
 
 export default function Header() {
   return (
@@ -10,17 +11,24 @@ export default function Header() {
       </div>
       <div className="main-nav">
         <div className="nav-section">
-          <a href="#">달성 현황</a>
+          <a href="#" id="main-hover">
+            달성 현황
+          </a>
           <div className="nav-divider"></div>
-          <a href="#"><span>마음이랑</span><br /><span>대화하기</span></a>
+          <a href="#">
+            <span>마음이랑</span>
+            <br />
+            <span>대화하기</span>
+          </a>
           <div className="nav-divider"></div>
           <a href="#">목표 실행</a>
           <div className="nav-divider"></div>
           <a href="#">마이페이지</a>
+          <div className="nav-divider"></div>
         </div>
 
         <div className="right-nav">
-        <a href="#">나의 정보</a>
+          <a href="#">나의 정보</a>
           <a href="#">Log Out</a>
         </div>
       </div>

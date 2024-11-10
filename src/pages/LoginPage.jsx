@@ -1,5 +1,18 @@
-// import React from "react";
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import KakaoLogin from "../components/KakaoLogin";
 
-export default function LoginPage() {
-  return <div>This is LoginPage</div>;
+function LoginPage() {
+  return (
+    <div>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <KakaoLogin />
+      </div>{" "}
+    </div>
+  );
 }
+
+export default LoginPage;
