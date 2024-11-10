@@ -1,0 +1,18 @@
+
+.footer {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    background-color: #76B66C;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  .footer span {
+    margin: 0 5px;
+  }
+  

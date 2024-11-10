@@ -9,7 +9,9 @@ export default function MainPage() {
       <div>
         <Header />
       </div>
-      <div><MainContent /></div>
+      <div>
+        <MainContent />
+      </div>
       <div>
         <Footer />
       </div>
