@@ -1,94 +1,149 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import target from "../img/target.png";
+import challenge from "../img/challenge.png";
+import chat from "../img/chat.png";
+import fighting from "../img/fighting.png";
+import buildings from "../img/buildings.png";
+import "../css/MainContent.css";
+
+const countingType1 = (num) => {
+  const element = document.querySelector("#reward-result");
+  if (num === 0) {
+    element.innerHTML = "0";
+  } else {
+    const each = Math.ceil(num / 33);
+    let time = 0;
+
+    for (let i = 0; i <= num; i += each) {
+      setTimeout(() => {
+        element.innerHTML = i.toLocaleString();
+      }, 20 * time);
+      if (i + each > num) {
+        setTimeout(() => {
+          element.innerHTML = num.toLocaleString();
+        }, 20 * (time + 1));
+      }
+      time++;
+    }
+  }
+};
 
 export default function MainContent() {
+  const [isTomorrowVisible, setIsTomorrowVisible] = useState(false);
+
+  useEffect(() => {
+    countingType1(150000);
+  }, []);
+
+  const toggleCardOrder = () => {
+    setIsTomorrowVisible((prev) => !prev);
+  };
+
+  const hideTomorrowCard = () => {
+    if (isTomorrowVisible) {
+      setIsTomorrowVisible(false);
+    }
+  };
+
+  const services = [
+    { name: "오늘의 챌린지", icon: challenge },
+    { name: "마음이와 대화하기", icon: chat },
+    { name: "응원 한마디", icon: fighting },
+    { name: "국가 지원 사업", icon: buildings },
+  ];
+
   return (
-    <div style={{ textAlign: "center", margin: "10px" }}>
-      <div
-        style={{
-          borderRadius: "15px",
-          backgroundColor: "#F5F9F4",
-          marginLeft: "5%",
-          marginRight: "5%",
-          height: "320px",
-          marginTop: "1%",
-          marginBottom: "1%",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <div
-          className="main-reward"
-          style={{
-            padding: "3%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            flex: 1,
-          }}
-        >
-          <div style={{ fontWeight: "bold" }}>My Reward</div>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <span style={{ fontWeight: "bold", fontSize: "8.5vw" }}>
+    <div className="main-content-container">
+      <div className="main-content-reward">
+        <div className="main-reward">
+          <div className="main-reward-title">My Reward</div>
+          <div className="main-reward-amount-container">
+            <span id="reward-result" className="main-reward-amount">
               150,000
             </span>
-            <span style={{ fontWeight: "bold", marginLeft: "10px" }}>원</span>
+            <span className="main-reward-unit">원</span>
           </div>
         </div>
 
-        <div
-          className="main-target"
-          style={{
-            display: "inline-block",
-            flex: 1,
-            padding: "3%",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              marginLeft: "auto",
-            }}
-          >
+        <div className="main-target">
+          <div style={{ position: "relative", marginLeft: "auto" }}>
+            {/* 하늘색 카드 */}
             <div
-              className="card"
               style={{
                 borderRadius: "20px",
                 backgroundColor: "#96B3F2",
-                width: "90%", // Increase width to extend to the right
-                height: "160px", // Increase height to extend further down
+                width: "90%",
+                height: "160px",
                 position: "absolute",
-                top: "15px", // Adjust top position
-                left: "15px", // Adjust left position
-                zIndex: 1,
+                top: "15px",
+                left: "15px",
+                zIndex: isTomorrowVisible ? 2 : 1,
               }}
             >
-              <span
+              <div
                 style={{
-                  position: "absolute",
-                  bottom: "5px", // Positioned at the bottom
-                  right: "10px", // Positioned to the right
-                  color: "white",
-                  fontSize: "12px",
-                  padding: "2px",
                   fontWeight: "bold",
-                  marginRight: "0.3vw"
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "5%",
+                  marginLeft: "10%",
                 }}
               >
-                내일의 목표 보기
-              </span>
+                <img
+                  src={target}
+                  style={{
+                    width: "25px",
+                    height: "24px",
+                    marginRight: "6px",
+                    objectFit: "contain",
+                  }}
+                />
+                <span style={{ fontSize: "1.1vw" }}>김동재 님의 내일 목표</span>
+              </div>
+              <div
+                style={{
+                  marginTop: "10px",
+                  fontWeight: "bold",
+                  color: "white",
+                  fontSize: "2.3vw",
+                  marginLeft: "-10%",
+                }}
+              >
+                방청소 및 침구 정리하기
+              </div>
+
+              {!isTomorrowVisible && (
+                <a
+                  onClick={toggleCardOrder}
+                  style={{
+                    position: "absolute",
+                    bottom: "5px",
+                    right: "10px",
+                    color: "white",
+                    fontSize: "12px",
+                    padding: "2px",
+                    fontWeight: "bold",
+                    marginRight: "0.3vw",
+                    cursor: "pointer",
+                  }}
+                >
+                  내일의 목표 보기
+                </a>
+              )}
             </div>
 
-            {/* Green card */}
+            {/* 초록색 카드 */}
             <div
-              className="card"
+              onClick={hideTomorrowCard}
               style={{
                 borderRadius: "20px",
                 backgroundColor: "#76B66C",
                 width: "85%",
                 height: "150px",
                 position: "relative",
-                zIndex: 2,
+                zIndex: isTomorrowVisible ? 1 : 2,
+                cursor: isTomorrowVisible ? "pointer" : "default",
               }}
             >
               <div
@@ -98,9 +153,21 @@ export default function MainContent() {
                   float: "left",
                   marginTop: "5%",
                   marginLeft: "10%",
+                  display: "flex",
                 }}
               >
-                김동재 님의 오늘 목표
+                <img
+                  src={target}
+                  style={{
+                    width: "25px",
+                    height: "24px",
+                    marginRight: "6px",
+                    objectFit: "contain",
+                  }}
+                />
+                <span style={{ fontSize: "1.1vw", float: "top" }}>
+                  김동재 님의 오늘 목표
+                </span>
               </div>
               <button
                 style={{
@@ -113,8 +180,8 @@ export default function MainContent() {
                   border: "none",
                   borderRadius: "20px",
                   backgroundColor: "#257519",
-                  marginTop: "15px", // Add margin to move down from the top
-                  marginRight: "15px", // Add margin to move away from the right edge
+                  marginTop: "15px",
+                  marginRight: "15px",
                   float: "right",
                 }}
               >
@@ -124,7 +191,14 @@ export default function MainContent() {
               <br />
               <br />
               <div
-                style={{ float:"left", marginTop:"0.5vw", marginLeft: "3vw", fontWeight: "bold", color: "white", fontSize: "2.3vw" }}
+                style={{
+                  float: "left",
+                  marginTop: "0.5vw",
+                  marginLeft: "3vw",
+                  fontWeight: "bold",
+                  color: "white",
+                  fontSize: "2.3vw",
+                }}
               >
                 방청소 및 침구 정리하기
               </div>
@@ -133,69 +207,25 @@ export default function MainContent() {
         </div>
       </div>
 
-      <div
-        style={{
-          marginTop: "2%",
-          backgroundColor: "#F5F9F4",
-          width: "100%",
-          height: "150px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 15px",
-        }}
-      >
-        {/* 자주 찾는 서비스 제목 */}
-        <div
-          style={{
-            marginLeft: "7%",
-            fontWeight: "bolder",
-            fontSize: "20px",
-          }}
-        >
+      <div className="service-section">
+        <div className="service-title">
           자주찾는
           <br />
           서비스
         </div>
-
-        {/* 서비스 카드들이 나열될 div */}
-        <div
-          style={{
-            width: "75%",
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {[
-            "오늘의 챌린지",
-            "마음이와 대화하기",
-            "응원 한마디",
-            "국가 지원 사업",
-          ].map((service, index) => (
-            <a
-              key={index}
-              className="service-card"
-              href="#"
-              style={{
-                width: "80px",
-                height: "80px",
-                fontWeight: "bolder",
-                backgroundColor: "white",
-                borderRadius: "50%",
-                padding: "15px",
-                margin: "15px",
-                color: "black",
-                textDecoration: "none",
-                fontSize: "13px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              {service}
+        <div className="services-container">
+          {services.map((service, index) => (
+            <a key={index} className="service-card" href="#">
+              <img src={service.icon} alt={service.name} />
+              {service.name === "마음이와 대화하기" ? (
+                <>
+                  마음이와
+                  <br />
+                  대화하기
+                </>
+              ) : (
+                service.name
+              )}
             </a>
           ))}
         </div>

@@ -1,0 +1,12 @@
+  .levelContainer {
+    gap: 20px;
+    display: flex;
+  }
+  
+  @media (max-width: 991px) {
+    .levelContainer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  }

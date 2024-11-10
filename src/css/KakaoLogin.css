@@ -1,0 +1,41 @@
+/* KakaoLogin.css */
+.kakao-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px); /* 헤더 높이만큼 뺀 높이 설정 (예: 60px) */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .kakao-login-button {
+    width: 30vw;
+    height: 25vw;
+    max-width: 300px;
+    max-height: 250px;
+    background-color: #E9F5E1;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .kakao-logo {
+    width: 15%;
+    height: auto;
+    margin-bottom: 8%;
+  }
+  
+  .kakao-login-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #3B1E1E;
+    text-align: center;
+  }
+  

@@ -1,0 +1,16 @@
+.taskList {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  line-height: 2;
+  list-style-type: decimal;
+}
+
+.taskItem {
+  color: #000;
+  margin-top: 6px;
+}
+
+.taskItemCompleted {
+  color: #b7b7b7;
+}

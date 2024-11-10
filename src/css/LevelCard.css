@@ -1,0 +1,58 @@
+.levelCard {
+  border-radius: 15px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  color: #000;
+  font-weight: 700;
+  width: 100%;
+  padding: 29px 61px;
+}
+.mainContent {
+  align-self: center;
+  margin-top: 71px;
+  width: 100%;
+  max-width: 1224px;
+}
+
+.beginnerLevel {
+  background-color: #d9f7d1;
+}
+
+.growingLevel {
+  background-color: #b3eba6;
+}
+
+.masterLevel {
+  background-color: #8fd97e;
+}
+
+@media (max-width: 991px) {
+  .levelCard {
+    margin-top: 18px;
+    padding: 0 20px;
+  }
+}
+
+.levelTitle {
+  font-size: 30px;
+  text-align: center;
+  align-self: center;
+}
+
+.comingSoon {
+  font-size: 24px;
+  display: flex; /* 중앙 배치용 플렉스 박스 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  flex-grow: 1; /* 전체 높이 차지하여 중앙에 위치 */
+  text-align: center; /* 텍스트 자체를 가운데 정렬 */
+}
+
+
+@media (max-width: 991px) {
+  .comingSoon {
+    margin-top: 40px;
+  }
+}
