@@ -1,14 +1,17 @@
-// import React from "react";
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import LoginPage from "../pages/LoginPage.jsx";
 import MainPage from "../pages/MainPage.jsx";
-//import ChatPage from "../pages/ChatPage.jsx";
 
 const routes = createBrowserRouter([
   {
     path: "/",
+    element: <LoginPage />,
+  },
+  {
+    path: "/main",
     element: <MainPage />,
   },
-
 ]);
 
 export default routes;
