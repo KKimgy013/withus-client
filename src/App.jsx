@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="app">
       <main className="main">
-        <RouterProvider router={routes} /> {/* RouterProvider로 라우터 제공 */}
+        <RouterProvider router={routes} />
       </main>
     </div>
   );
