@@ -28,8 +28,10 @@ export default function KakaoLogin() {
         );
         const data = await response.json();
         if (data.accessToken) {
-          localStorage.setItem("kakaoToken", data.accessToken);
+
+          localStorage.setItem("kakaoToken", data.user.accessToken);
           navigate("/api/main");
+
         }
       } catch (error) {
         console.error("로그인 실패:", error);
