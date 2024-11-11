@@ -28,6 +28,7 @@ export default function KakaoLogin() {
         const data = await response.json();
         if (data.accessToken) {
           localStorage.setItem("kakaoToken", data.user.accessToken);
+          console.log(">>>>>>", data);
           navigate("/main");
         }
       } catch (error) {

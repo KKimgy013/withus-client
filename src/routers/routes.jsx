@@ -10,7 +10,7 @@ const routes = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/api/main",
+    path: "/main",
     element: <MainPage />,
   },
   {
