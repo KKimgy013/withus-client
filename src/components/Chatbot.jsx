@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import '../css/Chatbot.css';
 
+
 const Chatbot = () => {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
@@ -19,7 +20,7 @@ const Chatbot = () => {
         
         try {
             // 백엔드로 메시지 전송
-            const response = await axios.post('http://localhost:3000/api/chat', { message: input });
+            const response = await axios.post('http://3.36.43.54/api/chat', { message: input });
 
             // 챗봇 응답 추가
             const botMessage = { sender: 'bot', text: response.data.message };

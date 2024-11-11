@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import kakao from "../img/kakao.png";
 import "../css/KakaoLogin.css";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../utils/url";
 
 export default function KakaoLogin() {
   const navigate = useNavigate();
@@ -18,17 +19,19 @@ export default function KakaoLogin() {
   const handleKakaoLogin = async () => {
     if (typeof window.Kakao !== "undefined" && window.Kakao.Auth) {
       window.Kakao.Auth.authorize({
-        redirectUri: "http://localhost:5000/oauth/kakao/callback",
+        redirectUri: `http://${BASE_URL}/api/auth/kakao/callback`,
       });
 
       try {
         const response = await fetch(
-          "http://localhost:5000/oauth/kakao/callback"
+          `http://${BASE_URL}/api/auth/kakao/callback`
         );
         const data = await response.json();
         if (data.accessToken) {
+
           localStorage.setItem("kakaoToken", data.user.accessToken);
-          navigate("/main");
+          navigate("/api/main");
+
         }
       } catch (error) {
         console.error("로그인 실패:", error);
