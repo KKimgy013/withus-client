@@ -30,8 +30,8 @@ export default function KakaoLogin() {
         if (data.accessToken) {
 
           localStorage.setItem("kakaoToken", data.user.accessToken);
-          navigate("/api/main");
-
+          console.log(">>>>>>", data);
+          navigate("/main");
         }
       } catch (error) {
         console.error("로그인 실패:", error);
